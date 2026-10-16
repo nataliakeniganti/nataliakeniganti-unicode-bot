@@ -30,3 +30,16 @@ Notes
 If you want, I can:
 - Add a custom GitHub Pages workflow, a README site template, or additional pages (usage, commands, screenshots).
 - Replace the `YOUR_CLIENT_ID` placeholder with your application ID and add an invite button on the site (I won't add any tokens or secrets).
+
+## Adding the full Unicode UCD files
+
+You asked to add the whole Unicode 18.0.0 UCD tree from https://www.unicode.org/Public/18.0.0/ucd/ into this repository.
+
+The project now includes:
+- `.github/workflows/fetch-ucd.yml`
+- `download_ucd.sh`
+
+Run the workflow from the GitHub Actions tab, or run `./download_ucd.sh` locally to download the Unicode UCD files into the `ucd/` folder.
+
+Warning:
+This tree is large and may be tens of MBs. If you prefer a smaller subset instead of the full UCD, I can add only the files your bot actually needs.
