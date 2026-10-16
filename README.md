@@ -12,7 +12,7 @@ How to invite the bot
 1. Replace `YOUR_CLIENT_ID` in the invite URL below with your application (client) ID and open it in a browser:
 
 ```
-https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot+applications.commands&permissions=0
+https://discord.com/oauth2/authorize?client_id=1560744983063953458&scope=bot+applications.commands&permissions=0
 ```
 
 Application URLs
