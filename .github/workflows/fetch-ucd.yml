@@ -2,29 +2,40 @@ name: Download Unicode UCD
 on:
   workflow_dispatch:
 
+# Allow this workflow to push commits
+permissions:
+  contents: write
+
 jobs:
   download-ucd:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
+
       - name: Install wget
         run: sudo apt-get update && sudo apt-get install -y wget
+
       - name: Download UCD tree
         run: |
           rm -rf ucd_temp || true
           mkdir -p ucd_temp
-          wget -r -np -nH --cut-dirs=3 -R "index.html*" -P ucd_temp https://www.unicode.org/Public/18.0.0/ucd/
+          wget -r -np -nH --cut-dirs=3 -R "index.html*" -P ucd_temp https://www.unicode.org/Public/latest/ucd/
           rm -rf ucd || true
           mkdir -p ucd
+          # make sure we move dotfiles if any
+          shopt -s dotglob || true
           mv ucd_temp/* ucd/ || true
+
       - name: Commit and push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add ucd
           git commit -m "Add Unicode UCD files (fetched by workflow)" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push origin HEAD:main
