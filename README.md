@@ -15,6 +15,14 @@ How to invite the bot
 https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot+applications.commands&permissions=0
 ```
 
+Application URLs
+- Interaction endpoint (POST): https://nice-example.local/api/interactions
+  - You can optionally configure an interaction endpoint to receive interactions via HTTP POST requests instead of through the bot gateway.
+- Linked role verification URL: https://nice-example.local/verify-user
+  - Configure this URL to enable your app as a requirement in server role link settings.
+- Terms of Service URL: https://my-cool-app.com/terms-of-service
+- Privacy Policy URL: https://my-cool-app.com/privacy-policy
+
 Notes
 - Do NOT commit or publish your bot token. The application client ID and public key are fine to put in public pages, but keep secrets out of the repo.
 - After pushing `index.html`, GitHub may automatically enable Pages for this repository and publish the site at the URL above. If it does not appear, go to the repository Settings → Pages and set the source to the `main` branch (root) and click Save.

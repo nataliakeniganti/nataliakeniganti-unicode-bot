@@ -10,6 +10,8 @@
     pre{background:#f6f8fa;padding:12px;border-radius:6px;overflow:auto}
     a.button{display:inline-block;background:#2ea44f;color:white;padding:8px 12px;border-radius:6px;text-decoration:none}
     .note{color:#555;font-size:0.95rem}
+    ul.links{padding-left:1.2rem}
+    li.link-item{margin-bottom:8px}
   </style>
 </head>
 <body>
@@ -36,6 +38,18 @@
     <pre>!unicode ♡
 !fancy hello
 !lookup ☺</pre>
+  </section>
+
+  <section>
+    <h2>Application URLs</h2>
+    <p>The following application URLs are useful when configuring your bot in the Discord Developer Portal. They are optional and can be set in the "OAuth2" / "General Information" / "Interactions" sections of your application.</p>
+    <ul class="links">
+      <li class="link-item"><strong>Interaction endpoint (POST)</strong>: <a href="https://nice-example.local/api/interactions">https://nice-example.local/api/interactions</a></li>
+      <li class="link-item"><strong>Linked role verification URL</strong>: <a href="https://nice-example.local/verify-user">https://nice-example.local/verify-user</a></li>
+      <li class="link-item"><strong>Terms of Service</strong>: <a href="https://my-cool-app.com/terms-of-service">https://my-cool-app.com/terms-of-service</a></li>
+      <li class="link-item"><strong>Privacy Policy</strong>: <a href="https://my-cool-app.com/privacy-policy">https://my-cool-app.com/privacy-policy</a></li>
+    </ul>
+    <p class="note">If these are local or development URLs (like https://nice-example.local) make sure they are reachable from Discord's servers or use a public HTTPS endpoint (or a tunneling service) for interactions to work.</p>
   </section>
 
   <section>
